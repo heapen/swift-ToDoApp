@@ -10,9 +10,10 @@ import UIKit
 class Anasayfa: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var listelerTableView: UITableView!
+    
     var listelerListesi = [Listeler]()
+    var anasayfaViewModel = AnasayfaViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +22,15 @@ class Anasayfa: UIViewController {
         listelerTableView.delegate = self
         listelerTableView.dataSource = self
 
-        
-        let l1 = Listeler(liste_id: 1, liste_ad: "Ev İşleri", liste_aciklama: "Yemek Yapılacak")
-        let l2 = Listeler(liste_id: 1, liste_ad: "Okul İşleri", liste_aciklama: "Ödevler yapılacak")
-        let l3 = Listeler(liste_id: 1, liste_ad: "Sosyal ", liste_aciklama: "Arkadaşlar ile buluşılacak")
-        listelerListesi.append(l1)
-        listelerListesi.append(l2)
-        listelerListesi.append(l3)
+        _ = anasayfaViewModel.listelerListesi.subscribe(onNext: { liste in
+            self.listelerListesi = liste
+            self.listelerTableView.reloadData()
+        })
     }
-
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        anasayfaViewModel.listeleriYukle()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetay" {
@@ -45,7 +44,7 @@ class Anasayfa: UIViewController {
 
 extension Anasayfa : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Liste ara: \(searchText)")
+        anasayfaViewModel.ara(aramaKelimse: searchText)
     }
 }
 
@@ -55,7 +54,6 @@ extension Anasayfa : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Satır sayısına göre tekrarlı çalışacak
         let hucre = tableView.dequeueReusableCell(withIdentifier: "listelerHucre") as! ListeHucre
         let liste = listelerListesi[indexPath.row]
         
@@ -84,7 +82,7 @@ extension Anasayfa : UITableViewDelegate, UITableViewDataSource{
             
             let evetAction = UIAlertAction(title: "Evet", style: .destructive){
                 action in
-                print(":Görevi Tamamla:\(liste.liste_ad!)")
+                self.anasayfaViewModel.tamamla(liste_id: liste.liste_id!)
             }
             alert.addAction(evetAction)
             

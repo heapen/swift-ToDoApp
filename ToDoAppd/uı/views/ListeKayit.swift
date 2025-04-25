@@ -11,6 +11,7 @@ class ListeKayit: UIViewController {
 
     @IBOutlet weak var tfListeAciklama: UITextField!
     @IBOutlet weak var tfListeAd: UITextField!
+    var listeKayitViewModel = ListeKayitViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,9 @@ class ListeKayit: UIViewController {
    
     @IBAction func buttonKaydet(_ sender: Any) {
         if let la = tfListeAd.text, let lac = tfListeAciklama.text{
-            kaydet(liste_ad: la, liste_aciklama: lac)
+            listeKayitViewModel.kaydet(liste_ad: la, liste_aciklama: lac)
         }
     }
     
-    func kaydet(liste_ad: String, liste_aciklama: String){
-        print("Liste kaydet: \(liste_ad), \(liste_aciklama)")
-    }
+    
 }

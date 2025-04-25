@@ -11,6 +11,7 @@ class ListeDetay: UIViewController {
 
     @IBOutlet weak var tfListeAciklama: UITextField!
     @IBOutlet weak var tfListeAd: UITextField!
+    var listeDetayViewModel = ListeDetayViewModel()
     
     var liste:Listeler?
     
@@ -26,12 +27,9 @@ class ListeDetay: UIViewController {
 
     @IBAction func buttonGuncelle(_ sender: Any) {
         if let la = tfListeAd.text, let lac = tfListeAciklama.text, let l = liste{
-            guncelle(liste_id: l.liste_id!, liste_ad: la, liste_aciklama: lac)
+            listeDetayViewModel.guncelle(liste_id: l.liste_id!, liste_ad: la, liste_aciklama: lac)
         }
     }
     
-    func guncelle(liste_id:Int, liste_ad:String, liste_aciklama:String){
-        print("Liste güncelleme: \(liste_id), \(liste_ad), \(liste_aciklama)")
-    }
     
 }

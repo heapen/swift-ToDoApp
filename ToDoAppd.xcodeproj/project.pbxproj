@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		24D2A7D72DBB8BC80080A449 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24D2A7D62DBB8BC80080A449 /* RxSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		245E25C72DB5371A004D5DBE /* ToDoAppd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoAppd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C4FB672DBBC55F00BFF669 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D2A7D72DBB8BC80080A449 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				245E25C92DB5371A004D5DBE /* ToDoAppd */,
+				24C4FB662DBBC55F00BFF669 /* Frameworks */,
 				245E25C82DB5371A004D5DBE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +63,14 @@
 				245E25C72DB5371A004D5DBE /* ToDoAppd.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		24C4FB662DBBC55F00BFF669 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24C4FB672DBBC55F00BFF669 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +93,7 @@
 			);
 			name = ToDoAppd;
 			packageProductDependencies = (
+				24D2A7D62DBB8BC80080A449 /* RxSwift */,
 			);
 			productName = ToDoAppd;
 			productReference = 245E25C72DB5371A004D5DBE /* ToDoAppd.app */;
@@ -95,6 +111,7 @@
 				TargetAttributes = {
 					245E25C62DB5371A004D5DBE = {
 						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1630;
 					};
 				};
 			};
@@ -107,6 +124,9 @@
 			);
 			mainGroup = 245E25BE2DB5371A004D5DBE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				24D2A7D52DBB8BC80080A449 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 245E25C82DB5371A004D5DBE /* Products */;
 			projectDirPath = "";
@@ -143,6 +163,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K5Y5QTK68V;
@@ -161,6 +182,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = batuhancelik.ToDoAppd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoAppd/ToDoAppd-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -171,6 +194,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K5Y5QTK68V;
@@ -189,6 +213,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = batuhancelik.ToDoAppd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoAppd/ToDoAppd-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24D2A7D52DBB8BC80080A449 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24D2A7D62DBB8BC80080A449 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24D2A7D52DBB8BC80080A449 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 245E25BF2DB5371A004D5DBE /* Project object */;
 }
